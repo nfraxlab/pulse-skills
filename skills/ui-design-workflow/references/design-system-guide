@@ -1,0 +1,276 @@
+# UI Design System Guide
+
+## Design Principles
+
+### 1. Visual Hierarchy
+- Use size, weight, and color to establish importance
+- Primary actions should be most prominent
+- Group related elements together
+- Use whitespace to separate sections
+
+### 2. Consistency
+- Maintain consistent spacing (use 4px/8px grid)
+- Use a limited color palette (3-5 primary colors)
+- Standardize component sizes and behaviors
+- Apply typography rules uniformly
+
+### 3. Accessibility
+- Minimum contrast ratio of 4.5:1 for text
+- Touch targets at least 44x44px
+- Provide keyboard navigation
+- Include alt text for images
+- Support screen readers with ARIA labels
+
+## Color System
+
+### Light Mode Palette
+```
+Primary:       #2563eb (Blue)
+Secondary:     #8b5cf6 (Purple)
+Success:       #10b981 (Green)
+Warning:       #f59e0b (Amber)
+Error:         #ef4444 (Red)
+Text Primary:  #1f2937 (Gray 900)
+Text Secondary:#6b7280 (Gray 500)
+Border:        #e5e7eb (Gray 200)
+Surface:       #ffffff (White)
+Background:    #f9fafb (Gray 50)
+```
+
+### Dark Mode Palette
+```
+Primary:       #3b82f6 (Lighter Blue)
+Secondary:     #a78bfa (Lighter Purple)
+Success:       #34d399 (Lighter Green)
+Warning:       #fbbf24 (Lighter Amber)
+Error:         #f87171 (Lighter Red)
+Text Primary:  #f9fafb (Gray 50)
+Text Secondary:#d1d5db (Gray 300)
+Border:        #374151 (Gray 700)
+Surface:       #1f2937 (Gray 800)
+Background:    #111827 (Gray 900)
+```
+
+## Typography Scale
+
+```
+Hero:      32px / 2rem, weight 700, line-height 1.2
+Heading 1: 24px / 1.5rem, weight 600, line-height 1.3
+Heading 2: 20px / 1.25rem, weight 600, line-height 1.4
+Heading 3: 18px / 1.125rem, weight 500, line-height 1.4
+Body:      14px / 0.875rem, weight 400, line-height 1.5
+Caption:   12px / 0.75rem, weight 400, line-height 1.4
+Label:     11px / 0.6875rem, weight 500, line-height 1.3
+```
+
+Font stack: `-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif`
+
+## Spacing System
+
+Use multiples of 4px for consistent rhythm:
+- 4px: tight spacing between related items
+- 8px: default gap between elements
+- 12px: small section spacing
+- 16px: standard padding
+- 20px: comfortable spacing
+- 24px: medium section spacing
+- 32px: large section spacing
+- 48px: major section breaks
+
+## Component Patterns
+
+### Buttons
+
+**Primary Button**
+- Background: var(--primary)
+- Color: white
+- Padding: 10px 20px
+- Border-radius: 8px
+- Font-size: 14px
+- Font-weight: 500
+- Hover: darker shade + translateY(-1px)
+- Active: even darker + translateY(0)
+
+**Secondary Button**
+- Background: transparent
+- Color: var(--primary)
+- Border: 1px solid var(--border)
+- Same dimensions as primary
+
+**Text Button**
+- No background or border
+- Color: var(--primary)
+- Padding: 10px 12px
+- Hover: background var(--surface-hover)
+
+### Input Fields
+
+```css
+.input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 14px;
+  background: var(--surface);
+  color: var(--text-primary);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+```
+
+### Cards
+
+```css
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  transition: all 0.2s;
+}
+
+.card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transform: translateY(-2px);
+}
+```
+
+### Modals
+
+- Overlay: rgba(0,0,0,0.5) backdrop
+- Content: max-width 600px, centered
+- Border-radius: 16px
+- Padding: 32px
+- Close button in top-right
+- Animate in with fade + scale
+
+### Navigation
+
+**Top Navigation**
+- Height: 64px
+- Background: var(--surface)
+- Border-bottom: 1px solid var(--border)
+- Logo left, nav items center, actions right
+- Sticky position
+
+**Sidebar Navigation**
+- Width: 240px
+- Background: var(--surface)
+- Border-right: 1px solid var(--border)
+- Active item: background var(--surface-hover), left border 3px solid var(--primary)
+
+## Layout Patterns
+
+### Dashboard Grid
+```css
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+```
+
+### Content Layout
+```css
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+```
+
+### Split Layout
+```css
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+@media (max-width: 768px) {
+  .split {
+    grid-template-columns: 1fr;
+  }
+}
+```
+
+## Responsive Breakpoints
+
+```
+Mobile:  < 640px
+Tablet:  640px - 1024px
+Desktop: > 1024px
+```
+
+## Animation Guidelines
+
+- Transition duration: 200ms for interactions, 300ms for modals
+- Easing: ease-out for entrances, ease-in for exits
+- Hover effects: subtle transforms (translateY -1-2px)
+- Loading states: use skeleton screens or spinners
+- Page transitions: fade or slide, never jarring
+
+## State Patterns
+
+### Loading State
+- Show skeleton UI matching final layout
+- Or centered spinner with "Loading..." text
+- Disable interactive elements
+
+### Empty State
+- Icon + heading + description
+- Call-to-action button to create first item
+- Friendly, encouraging copy
+
+### Error State
+- Red/error color accent
+- Clear error message
+- Retry button or next action
+- Never show technical stack traces
+
+### Success State
+- Green checkmark icon
+- Confirmation message
+- Optional next action
+
+## Form Design
+
+### Field Layout
+- Label above input (not placeholder)
+- Helper text below input, 12px gray
+- Error text below, 12px red
+- Required fields marked with asterisk
+- Group related fields
+
+### Validation
+- Validate on blur, not on every keystroke
+- Show success state after valid input
+- Inline error messages, not alerts
+- Disable submit until form is valid
+
+## Icon Usage
+
+- Size: 16px for inline, 20px for buttons, 24px for headers
+- Use outline style for consistency
+- Color: inherit from parent or var(--text-secondary)
+- Always include aria-label for accessibility
+
+## Best Practices
+
+1. **Mobile-first design**: Start with mobile layout, enhance for desktop
+2. **Progressive disclosure**: Show only what's needed, hide complexity
+3. **Feedback**: Always acknowledge user actions (loading, success, error)
+4. **Forgiving inputs**: Accept multiple formats, trim whitespace
+5. **Undo actions**: Allow reverting destructive operations
+6. **Keyboard shortcuts**: Support power users with kbd navigation
+7. **Dark mode**: Always support both light and dark color schemes
+8. **Performance**: Optimize images, lazy-load off-screen content
+9. **Semantic HTML**: Use proper tags (button, nav, article, etc.)
+10. **Test across devices**: Verify on iOS, Android, different browsers
