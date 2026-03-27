@@ -1,0 +1,326 @@
+# Common UI Patterns & Examples
+
+## Dashboard Layouts
+
+### KPI Dashboard
+**Use case**: Display key metrics at a glance
+
+**Structure**:
+- Grid of metric cards (3-4 columns)
+- Each card shows: value, label, trend indicator
+- Charts below for detailed trends
+- Filters at top for date range/segments
+
+**Visual hierarchy**:
+- Largest text for metric values (24-32px)
+- Trend indicators in color (green up, red down)
+- Labels in muted color (11px uppercase)
+
+### Analytics Dashboard
+**Components**:
+- Top navigation with date picker
+- Sidebar filters
+- Main area: mixed chart types (line, bar, pie)
+- Summary cards above charts
+- Table below with pagination
+
+## Form Layouts
+
+### Single-Column Form
+**Best for**: Short forms (3-7 fields), mobile-first
+
+```
+[Label]
+[Input field spanning full width]
+[Helper text]
+
+[Label]
+[Input field]
+
+[Submit button full width]
+```
+
+### Two-Column Form
+**Best for**: Longer forms with related field pairs
+
+```
+[First Name]      [Last Name]
+[Email]           [Phone]
+[Address line 1]
+[Address line 2]
+[City]            [State]  [Zip]
+
+[Cancel] [Submit]
+```
+
+### Multi-Step Form
+**Best for**: Complex forms (10+ fields)
+
+**Components**:
+- Progress indicator at top (steps 1/4, 2/4, etc.)
+- Single step visible per screen
+- Back + Next/Submit buttons
+- Save draft option
+- Summary screen at end
+
+## Navigation Patterns
+
+### Top Navigation
+**Use case**: Few sections (3-7), desktop-focused
+
+```
+[Logo] [Nav Item] [Nav Item] [Nav Item]     [Search] [Profile]
+```
+
+### Sidebar Navigation
+**Use case**: Many sections, hierarchical
+
+```
+[Logo]
+[Section 1]
+  [Sub-item]
+  [Sub-item]
+[Section 2]
+[Section 3]
+```
+
+### Tab Navigation
+**Use case**: Multiple views of same object
+
+```
+[Overview] [Details] [History] [Settings]
+[Tab content area]
+```
+
+### Breadcrumbs
+**Use case**: Deep hierarchies
+
+```
+Home > Category > Subcategory > Current Page
+```
+
+## Data Display Patterns
+
+### Table with Actions
+**Features**:
+- Column headers sortable (show arrow on hover)
+- Row hover state
+- Checkbox for bulk selection
+- Action buttons/menu per row
+- Pagination or infinite scroll at bottom
+- Search/filter at top
+
+### Card Grid
+**Use case**: Visual content, products, media
+
+**Layout**:
+- Responsive grid (1-4 columns based on width)
+- Card: image + title + metadata + action
+- Hover: slight elevation + shadow increase
+- Loading: skeleton cards
+
+### List with Preview
+**Use case**: Email, messages, files
+
+**Structure**:
+- Left: scrollable list of items
+- Right: selected item detail view
+- Active item highlighted in list
+- Responsive: stack on mobile
+
+## Modal & Overlay Patterns
+
+### Confirmation Modal
+```
+[X close]
+
+[Icon]
+Are you sure you want to delete this?
+This action cannot be undone.
+
+[Cancel] [Delete]
+```
+
+### Form Modal
+- Title at top with close button
+- Form fields in body
+- Footer with Cancel + Submit
+- Close on backdrop click or Escape key
+
+### Drawer/Slide-over
+**Use case**: Secondary content, filters, settings
+
+- Slides in from right (or left)
+- Overlay backdrop
+- Close button at top
+- Content scrollable
+- Wider than modal (400-600px)
+
+### Toast/Notification
+**Use case**: Temporary feedback
+
+- Fixed position: top-right or bottom-right
+- Auto-dismiss after 3-5 seconds
+- Colored left border (success/error/info)
+- Close button optional
+- Stack multiple toasts
+
+## Search Patterns
+
+### Instant Search
+- Search input with icon
+- Results appear as you type (after 2-3 chars)
+- Dropdown below input with results
+- Highlight matching text
+- Keyboard navigation (up/down arrows, enter to select)
+- Show "No results" state
+
+### Advanced Search
+- Simple input initially
+- "Advanced" toggle reveals filters
+- Filters: dropdowns, checkboxes, date pickers
+- Applied filters shown as removable pills
+- Clear all option
+
+## Settings Page Patterns
+
+### Tabbed Settings
+```
+[General] [Security] [Notifications] [Billing]
+
+[Setting group title]
+[Setting row: label + toggle/input + description]
+[Setting row]
+
+[Setting group title]
+[Setting row]
+```
+
+### Grouped Settings
+- Each section in a card
+- Section heading
+- Settings as rows within card
+- Save button per section or global save at bottom
+
+## Empty States
+
+### No Data Yet
+```
+[Illustration or icon]
+No items yet
+Get started by creating your first item.
+[Create Item button]
+```
+
+### No Search Results
+```
+[Search icon]
+No results for "query"
+Try different keywords or filters.
+[Clear search button]
+```
+
+### Error State
+```
+[Error icon]
+Something went wrong
+We couldn't load this data.
+[Retry button]
+```
+
+## Loading States
+
+### Skeleton Screen
+- Gray placeholder boxes matching final layout
+- Subtle shimmer animation
+- Preserves layout dimensions
+
+### Spinner
+- Centered in container
+- Size appropriate to context (16-32px)
+- Optional "Loading..." text below
+
+### Progress Bar
+- For known duration tasks
+- Shows percentage complete
+- Optional time remaining estimate
+
+## Onboarding Patterns
+
+### Welcome Tour
+- Modal or spotlight highlighting features
+- 3-5 steps maximum
+- Skip tour option
+- Progress dots at bottom
+- Finish button on last step
+
+### Empty State Onboarding
+- First time user sees empty state
+- Quick tips or tutorial
+- Sample data option
+- Video or GIF demonstrating usage
+
+## Profile & Account Patterns
+
+### Profile Header
+```
+[Avatar]
+[Name] [Edit button]
+[Email/username]
+[Bio/description]
+
+[Tab navigation: Posts | Following | Followers]
+```
+
+### Account Settings
+- Avatar upload with preview
+- Form fields for name, email, etc.
+- Password change section
+- Danger zone (delete account) at bottom in red
+
+## Feedback & Rating Patterns
+
+### Star Rating
+- 5 clickable stars
+- Hover to preview rating
+- Half-star support optional
+- Show average rating + count
+
+### Feedback Form
+```
+How was your experience?
+[😞] [😐] [😊]
+
+Tell us more (optional)
+[Text area]
+
+[Submit feedback]
+```
+
+## Responsive Patterns
+
+### Mobile Menu
+- Hamburger icon top-left or top-right
+- Full-screen or slide-out menu
+- Close X or back button
+- Stack navigation items vertically
+
+### Desktop → Mobile Transformations
+- Grid → single column
+- Sidebar → bottom tabs or hamburger
+- Table → cards or horizontal scroll
+- Multi-column form → single column
+- Large modals → full-screen
+
+## Accessibility Checklist
+
+- [ ] All interactive elements keyboard accessible
+- [ ] Focus indicators visible
+- [ ] Color not the only indicator (use icons + text)
+- [ ] Alt text on images
+- [ ] ARIA labels on icon buttons
+- [ ] Proper heading hierarchy (h1 → h2 → h3)
+- [ ] Form labels associated with inputs
+- [ ] Error messages announced to screen readers
+- [ ] Sufficient color contrast (4.5:1 minimum)
+- [ ] Touch targets 44x44px minimum
