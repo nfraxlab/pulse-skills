@@ -168,6 +168,30 @@ explicit. Horizontal and vertical swimlanes are both valid:
 If most cells would be empty, many placements are guessed, or connectors would
 travel long distances, use sequence or graph instead.
 
+### Layout Economy
+
+Prefer compact first-shot layouts across all renderers. Host surfaces can
+scroll, but wide visualizations are usually harder to scan than tall ones.
+
+- Prefer vertical growth over horizontal sprawl when the underlying story still
+  reads clearly.
+- Keep labels concise and move qualifiers into grouped counts, details, or
+  tooltips when possible.
+- When a workflow has too many steps, group fine-grained steps into milestones
+  instead of exposing every step as its own visible mark.
+- For swimlanes, keep first-shot layouts compact, usually 3 to 5 visible
+  phases and 3 to 5 lanes; collapse detailed stages into macro-phases before
+  adding more columns.
+- For sequences, summarize low-level implementation chatter into meaningful
+  handoffs.
+- For graphs, prefer clustering and grouped subgraphs over exploding breadth.
+- For matrices and tables, reduce visible columns before forcing very wide
+  layouts.
+- Use `orientation: "auto"` unless the user has a clear preference; choose the
+  orientation that reduces scan cost without hiding structure.
+
+Height can grow. Width should be earned.
+
 ### Graphs
 
 Use for topology, dependency, architecture, and relationship networks. The model
@@ -213,6 +237,7 @@ large graph -> clustered graph
 too many messages -> summarized sequence
 too many categories -> group as Other
 wide table -> matrix/table with fewer columns
+too many phases -> macro-phases, vertical swimlane, or sequence
 ```
 
 Do not expose retry loops to the user unless no truthful repair is possible.

@@ -36,6 +36,13 @@ Visual defaults:
 - Renderers should preserve hover states, tooltips, legends, accent colors, and
   dark-mode compatibility unless the user explicitly asks for static output.
 
+Cross-renderer layout guidance:
+- Prefer compact first-shot layouts and vertical growth over horizontal sprawl.
+- Group fine-grained detail into milestones, summaries, clusters, or tooltips
+  before adding many more visible columns or branches.
+- Reduce scan cost before preserving exhaustive detail; choose the renderer and
+  orientation that makes structure easiest to read.
+
 ## VisualizationPlan
 
 ```json
@@ -187,6 +194,10 @@ Limits:
 - Max 20 visible nodes by default.
 - Use `groupMode: "auto"` for dense cells.
 - Use explicit `orientation` only when the user requests it.
+- Prefer 3 to 5 visible phases for first-shot readability; summarize into
+  macro-phases before widening the diagram further.
+- Prefer vertical growth over horizontal spread; if ownership by stage becomes
+  too wide to scan, switch to vertical swimlane or sequence.
 
 ## GraphSpec
 
