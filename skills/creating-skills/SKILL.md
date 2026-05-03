@@ -21,8 +21,8 @@ published, and loaded by any compatible agent.
 
 | Tool | Purpose |
 |------|---------|
-| `create_skill` | Create a new skill (name, description, optional script) |
-| `add_skill_document` | Attach a reference document to an existing skill |
+| `create_skill` | Install a new workspace skill bundle (name, description, optional script) |
+| `add_skill_document` | Reinstall an existing skill bundle with an additional document |
 | `read_skill` | Read a skill and its attached documents |
 | `list_skills` | List all skills in the workspace |
 | `run_skill` | Execute a skill's script |
@@ -58,9 +58,22 @@ A complete skill maps to this directory layout when published:
 ```
 
 When creating through Pulse tools:
-- `create_skill` sets the name, description, and optional script
-- `add_skill_document` attaches reference documents
-- The directory structure is assembled automatically on publish
+- `create_skill` installs a complete skill bundle and generates `SKILL.md`
+- `add_skill_document` rewrites that installed bundle to include new reference material
+- The published directory structure is derived from the installed bundle, not assembled from separate sources of truth
+
+## Installation Model
+
+Treat workspace skills as installed bundles, not ad hoc records plus extra files.
+
+- `create_skill` installs the initial bundle with a generated `SKILL.md`
+- `add_skill_document` should be used only when you genuinely need another bundled file
+- `read_skill` should always be your check that the installed bundle reads correctly before relying on it
+
+This matters because Pulse now uses the same bundle-first model across:
+- system skills loaded from `pulse-skills`
+- marketplace skills imported into a workspace
+- workspace skills created directly by the agent
 
 ## Naming Rules
 
@@ -140,7 +153,7 @@ Move detailed reference material to separate documents.
 ## Scripts
 
 Scripts are executable code the agent can run via `run_skill`. When
-creating a skill with a script, provide:
+installing a skill with a script, provide:
 
 - `script_content`: The full script body
 - `script_type`: One of `python`, `shell`, or `none`
@@ -151,7 +164,7 @@ Scripts are useful for:
 - File processing workflows
 - API calls or integrations
 
-Example: creating a skill with a Python script:
+Example: installing a skill with a Python script:
 
 ```
 create_skill(
@@ -166,8 +179,9 @@ When published, scripts appear as `scripts/run.py` or `scripts/run.sh`.
 
 ## Reference Documents
 
-Attach additional documentation to a skill using `add_skill_document`.
-Documents are loaded on demand (not at startup) to save context tokens.
+Attach additional documentation to a skill using `add_skill_document` when
+the installed bundle genuinely needs another file. Documents are loaded on
+demand (not at startup) to save context tokens.
 
 Good uses for reference documents:
 - Detailed formatting guides or style references
@@ -184,6 +198,8 @@ add_skill_document(
 ```
 
 When published, documents appear under `references/<name>`.
+
+Prefer a small number of clear bundled documents over many incremental adds.
 
 ## Progressive Disclosure
 

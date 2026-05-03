@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "pulse-skills"
+version = "0.1.0"
+description = "Pulse system skill bundle"
+authors = ["Ali Khatami <alixkhatami@gmail.com>"]
+readme = "README.md"
+packages = [{ include = "pulse_skills" }]
+include = [
+  { path = "manifest.json", format = ["sdist", "wheel"] },
+  { path = "skills/**/*", format = ["sdist", "wheel"] },
+  { path = "INDEX.md", format = ["sdist", "wheel"] },
+]
+
+[tool.poetry.dependencies]
+python = ">=3.11,<4.0"
+pyyaml = ">=6.0,<7.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

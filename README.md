@@ -4,6 +4,13 @@ Shared skills repository for [Pulse](https://github.com/nfraxlab/pulse). Skills 
 
 This repository follows the [Agent Skills](https://agentskills.io/specification) open standard.
 
+Pulse can consume this repository in three runtime modes:
+
+1. A sibling `pulse-skills` checkout during local development
+2. An installed `pulse-skills` Python distribution that exposes `manifest.json` and `skills/**/*` as package data
+
+The authored source of truth stays here. Installed copies are runtime artifacts.
+
 ## Directory Structure
 
 Each skill lives in its own directory under `skills/`:
@@ -73,6 +80,55 @@ Skills are loaded in stages to minimize context usage:
 3. **Resources** (on demand) -- files in `scripts/`, `references/`, and `assets/` are loaded only when needed
 
 Keep SKILL.md under 500 lines. Move detailed reference material to separate files.
+
+## Manifest
+
+Pulse consumes `manifest.json` as the compact system-skill catalog and loads
+full `SKILL.md` files only through `read_skill`. Regenerate the manifest and
+index whenever skills are added, removed, or edited:
+
+```
+python scripts/generate_manifest.py
+```
+
+The generated manifest includes names, descriptions, tags, trigger phrases,
+versions, paths, checksums, and update timestamps. Pulse should not hardcode
+the system skill registry; this repository is the source of truth.
+
+## Installation Artifact
+
+This repo also ships as the `pulse-skills` Python distribution so Pulse can
+load the manifest and skill bundle from installed package data instead of a
+checked-in copy.
+
+Build the artifact locally with:
+
+```
+poetry build
+```
+
+Install it into another environment with either a local path or a git source:
+
+```
+pip install /path/to/pulse-skills
+# or
+pip install git+https://github.com/nfraxlab/pulse-skills.git@main
+```
+
+## GitHub Automation
+
+Pushes to `main` validate the generated manifest, build the `pulse-skills`
+artifact, and then dispatch the Pulse API preview workflow so preview picks up
+the updated system skills automatically.
+
+This requires a repository secret in `pulse-skills`:
+
+```
+PULSE_REPO_DISPATCH_TOKEN
+```
+
+The token must be able to call the GitHub API for the `nfraxlab/pulse`
+repository so `repository_dispatch` events can trigger Pulse preview CI/deploy.
 
 ## Naming Rules
 

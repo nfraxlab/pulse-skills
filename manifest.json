@@ -1,0 +1,67 @@
+{
+  "generated_at": "2026-05-03T01:13:17.300972+00:00",
+  "schema_version": 1,
+  "skills": [
+    {
+      "checksum": "f3c23c6e3de992a82634f682e5f3f34fbb73e6759fdbbaf432fc5a6db121d480",
+      "description": "Guides the agent through creating, naming, and structuring workspace skills following the Agent Skills open standard. Covers SKILL.md format, YAML frontmatter, scripts, reference documents, assets, naming rules, and publishing. Use when the user asks to save a reusable pattern, workflow, or procedure as a skill.",
+      "name": "creating-skills",
+      "path": "skills/creating-skills/SKILL.md",
+      "tags": [],
+      "trigger_phrases": [],
+      "updated_at": "2026-05-02T23:42:35.868673+00:00",
+      "version": "1.0"
+    },
+    {
+      "checksum": "6d69d1f798fbe1189e3f59b70efb9af12aa3be6d8751dfe613fc1c89571b1422",
+      "description": "Guides Pulse when retrieving, writing, and organizing user knowledge across live transcripts, long-term memory, notes, and note subpages. Use when the user asks what was decided, wants notes taken, needs durable project documentation, or asks Pulse to remember or find prior context.",
+      "name": "knowledge-management",
+      "path": "skills/knowledge-management/SKILL.md",
+      "tags": [
+        "notes",
+        "memory",
+        "transcripts",
+        "retrieval"
+      ],
+      "trigger_phrases": [
+        "remember this",
+        "write this down",
+        "take notes",
+        "what did we decide",
+        "find my notes"
+      ],
+      "updated_at": "2026-05-02T22:28:51.749511+00:00",
+      "version": "1.0"
+    },
+    {
+      "checksum": "4aede072f3ffcc70592d61aa670103785fb13b8bb75c26635cabcc95e3b79086",
+      "description": "Defines how the agent extracts and presents insights from live audio transcripts, including action items, decisions, and open questions. Use when the user asks about the current meeting or requests a summary.",
+      "name": "meeting-insights",
+      "path": "skills/meeting-insights/SKILL.md",
+      "tags": [],
+      "trigger_phrases": [],
+      "updated_at": "2026-03-28T00:28:11.602504+00:00",
+      "version": "1.0"
+    },
+    {
+      "checksum": "a8092c641d8eb66d6d11599f6e90a62b1931f30ec7f6dcec18783cc948a2b069",
+      "description": "Controls when and how the agent uses recall_past_conversations to retrieve prior session context. Use when the user references something from a previous conversation or when deciding whether information is worth persisting.",
+      "name": "memory-patterns",
+      "path": "skills/memory-patterns/SKILL.md",
+      "tags": [],
+      "trigger_phrases": [],
+      "updated_at": "2026-03-28T00:28:11.605380+00:00",
+      "version": "1.0"
+    },
+    {
+      "checksum": "2c525d4a99d80624baca70bbbf9cc010f8262fa3a641d56d7e4e17730deed76c",
+      "description": "Guides production-ready visualization generation in Pulse using product-owned renderer selection, structured specs, validation, shared renderer configuration, and deterministic renderers instead of prompt-authored HTML/SVG geometry. Use when planning, generating, debugging, or improving charts, diagrams, swimlanes, sequences, timelines, matrices, dashboards, graph layouts, Mermaid-style visuals, or visualization tooling.",
+      "name": "visualization-systems",
+      "path": "skills/visualization-systems/SKILL.md",
+      "tags": [],
+      "trigger_phrases": [],
+      "updated_at": "2026-04-25T17:02:25.544585+00:00",
+      "version": "1.1"
+    }
+  ]
+}
