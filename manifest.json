@@ -1,66 +1,109 @@
 {
-  "generated_at": "2026-05-03T01:13:17.300972+00:00",
+  "generated_at": "2026-05-04T18:49:09.001203+00:00",
   "schema_version": 1,
   "skills": [
     {
-      "checksum": "f3c23c6e3de992a82634f682e5f3f34fbb73e6759fdbbaf432fc5a6db121d480",
-      "description": "Guides the agent through creating, naming, and structuring workspace skills following the Agent Skills open standard. Covers SKILL.md format, YAML frontmatter, scripts, reference documents, assets, naming rules, and publishing. Use when the user asks to save a reusable pattern, workflow, or procedure as a skill.",
+      "checksum": "d67e79e0d0c2a9f82c410da65eddf135f00adf257cc29685e26b3fa5ca048f0a",
+      "description": "Guides Pulse on creating, naming, and structuring reusable skills. Use when the user asks to save a pattern, workflow, or procedure as a skill, or when a solved approach should be reusable in future sessions.",
       "name": "creating-skills",
       "path": "skills/creating-skills/SKILL.md",
-      "tags": [],
-      "trigger_phrases": [],
-      "updated_at": "2026-05-02T23:42:35.868673+00:00",
+      "tags": [
+        "skills",
+        "reuse",
+        "workflow"
+      ],
+      "trigger_phrases": [
+        "turn this into a skill",
+        "save as a skill",
+        "reusable workflow"
+      ],
+      "updated_at": "2026-05-04T18:48:53.693652+00:00",
       "version": "1.0"
     },
     {
-      "checksum": "6d69d1f798fbe1189e3f59b70efb9af12aa3be6d8751dfe613fc1c89571b1422",
-      "description": "Guides Pulse when retrieving, writing, and organizing user knowledge across live transcripts, long-term memory, notes, and note subpages. Use when the user asks what was decided, wants notes taken, needs durable project documentation, or asks Pulse to remember or find prior context.",
+      "checksum": "f8b713c0510c25ba4e59e5e3d625f8ea60ddb9fbbffea6ac085c389f8933571e",
+      "description": "Guides Pulse on choosing between transcripts, workspace memory, behavioral instructions, notes, and skills. Use when the user asks what was decided, wants something saved, needs durable documentation, or asks Pulse to find prior context.",
       "name": "knowledge-management",
       "path": "skills/knowledge-management/SKILL.md",
       "tags": [
         "notes",
         "memory",
         "transcripts",
-        "retrieval"
+        "retrieval",
+        "instructions"
       ],
       "trigger_phrases": [
         "remember this",
         "write this down",
         "take notes",
         "what did we decide",
-        "find my notes"
+        "find my notes",
+        "save this for later"
       ],
-      "updated_at": "2026-05-02T22:28:51.749511+00:00",
-      "version": "1.0"
+      "updated_at": "2026-05-04T18:48:53.687339+00:00",
+      "version": "1.1"
     },
     {
-      "checksum": "4aede072f3ffcc70592d61aa670103785fb13b8bb75c26635cabcc95e3b79086",
-      "description": "Defines how the agent extracts and presents insights from live audio transcripts, including action items, decisions, and open questions. Use when the user asks about the current meeting or requests a summary.",
+      "checksum": "6e6a1825faea8aca4c651adb9bbf111176e408fd6c27960509cec0ef8664663e",
+      "description": "Guides Pulse on extracting meeting decisions, action items, and open questions from live transcripts. Use when the user asks about the current meeting, wants a transcript summary, or needs meeting follow-ups captured.",
       "name": "meeting-insights",
       "path": "skills/meeting-insights/SKILL.md",
-      "tags": [],
-      "trigger_phrases": [],
-      "updated_at": "2026-03-28T00:28:11.602504+00:00",
-      "version": "1.0"
+      "tags": [
+        "meeting",
+        "transcript",
+        "summary",
+        "action-items"
+      ],
+      "trigger_phrases": [
+        "summarize the meeting",
+        "what was said",
+        "action items",
+        "what did we decide"
+      ],
+      "updated_at": "2026-05-04T18:48:53.687366+00:00",
+      "version": "1.1"
     },
     {
-      "checksum": "a8092c641d8eb66d6d11599f6e90a62b1931f30ec7f6dcec18783cc948a2b069",
-      "description": "Controls when and how the agent uses recall_past_conversations to retrieve prior session context. Use when the user references something from a previous conversation or when deciding whether information is worth persisting.",
+      "checksum": "68289fdeeb368f20332a242d264342d11586847e1f7878653c97721102d87e43",
+      "description": "Guides Pulse on retrieving, saving, and updating durable workspace memory and behavioral instructions. Use when the user references prior context, states a stable preference, or when deciding whether something should be saved for future conversations.",
       "name": "memory-patterns",
       "path": "skills/memory-patterns/SKILL.md",
-      "tags": [],
-      "trigger_phrases": [],
-      "updated_at": "2026-03-28T00:28:11.605380+00:00",
-      "version": "1.0"
+      "tags": [
+        "memory",
+        "retrieval",
+        "persistence",
+        "preferences"
+      ],
+      "trigger_phrases": [
+        "do you remember",
+        "remember this",
+        "keep this in mind",
+        "last time we decided",
+        "always do this"
+      ],
+      "updated_at": "2026-05-04T18:48:53.687341+00:00",
+      "version": "1.1"
     },
     {
-      "checksum": "2c525d4a99d80624baca70bbbf9cc010f8262fa3a641d56d7e4e17730deed76c",
-      "description": "Guides production-ready visualization generation in Pulse using product-owned renderer selection, structured specs, validation, shared renderer configuration, and deterministic renderers instead of prompt-authored HTML/SVG geometry. Use when planning, generating, debugging, or improving charts, diagrams, swimlanes, sequences, timelines, matrices, dashboards, graph layouts, Mermaid-style visuals, or visualization tooling.",
+      "checksum": "7c9accfbc4698a1d4b06976201bbfb1232b4f69113895a9d10dd44ed7b7dce6c",
+      "description": "Guides Pulse on choosing and generating production visualizations with product-owned renderers and structured specs. Use when planning, generating, debugging, or improving charts, diagrams, swimlanes, sequences, timelines, matrices, dashboards, or visualization tooling.",
       "name": "visualization-systems",
       "path": "skills/visualization-systems/SKILL.md",
-      "tags": [],
-      "trigger_phrases": [],
-      "updated_at": "2026-04-25T17:02:25.544585+00:00",
+      "tags": [
+        "visualization",
+        "diagrams",
+        "charts",
+        "swimlane",
+        "sequence"
+      ],
+      "trigger_phrases": [
+        "create a diagram",
+        "make a chart",
+        "swimlane",
+        "sequence diagram",
+        "dependency graph"
+      ],
+      "updated_at": "2026-05-04T18:48:53.687435+00:00",
       "version": "1.1"
     }
   ]

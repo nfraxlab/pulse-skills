@@ -1,12 +1,22 @@
 ---
 name: meeting-insights
 description: >-
-  Defines how the agent extracts and presents insights from live audio
-  transcripts, including action items, decisions, and open questions.
-  Use when the user asks about the current meeting or requests a summary.
+  Guides Pulse on extracting meeting decisions, action items, and open
+  questions from live transcripts. Use when the user asks about the current
+  meeting, wants a transcript summary, or needs meeting follow-ups captured.
 metadata:
   author: nfraxlab
-  version: "1.0"
+  version: "1.1"
+tags:
+  - meeting
+  - transcript
+  - summary
+  - action-items
+trigger_phrases:
+  - summarize the meeting
+  - what was said
+  - action items
+  - what did we decide
 ---
 
 # Meeting Insight Patterns

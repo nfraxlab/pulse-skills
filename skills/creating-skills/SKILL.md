@@ -1,14 +1,20 @@
 ---
 name: creating-skills
 description: >-
-  Guides the agent through creating, naming, and structuring workspace skills
-  following the Agent Skills open standard. Covers SKILL.md format, YAML
-  frontmatter, scripts, reference documents, assets, naming rules, and
-  publishing. Use when the user asks to save a reusable pattern, workflow,
-  or procedure as a skill.
+  Guides Pulse on creating, naming, and structuring reusable skills. Use when
+  the user asks to save a pattern, workflow, or procedure as a skill, or when
+  a solved approach should be reusable in future sessions.
 metadata:
   author: nfraxlab
   version: "1.0"
+tags:
+  - skills
+  - reuse
+  - workflow
+trigger_phrases:
+  - turn this into a skill
+  - save as a skill
+  - reusable workflow
 ---
 
 # Creating Skills

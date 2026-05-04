@@ -1,15 +1,25 @@
 ---
 name: visualization-systems
 description: >-
-  Guides production-ready visualization generation in Pulse using product-owned
-  renderer selection, structured specs, validation, shared renderer
-  configuration, and deterministic renderers instead of prompt-authored
-  HTML/SVG geometry. Use when planning, generating, debugging, or improving
-  charts, diagrams, swimlanes, sequences, timelines, matrices, dashboards,
-  graph layouts, Mermaid-style visuals, or visualization tooling.
+  Guides Pulse on choosing and generating production visualizations with
+  product-owned renderers and structured specs. Use when planning,
+  generating, debugging, or improving charts, diagrams, swimlanes,
+  sequences, timelines, matrices, dashboards, or visualization tooling.
 metadata:
   author: nfraxlab
   version: "1.1"
+tags:
+  - visualization
+  - diagrams
+  - charts
+  - swimlane
+  - sequence
+trigger_phrases:
+  - create a diagram
+  - make a chart
+  - swimlane
+  - sequence diagram
+  - dependency graph
 ---
 
 # Visualization Systems
